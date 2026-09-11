@@ -1,2 +1,5 @@
-# Delivered orders should say they were not cancelled
-df.loc[df['order_status'] == 'Delivered', 'cancellation_reason'].value_counts()
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
