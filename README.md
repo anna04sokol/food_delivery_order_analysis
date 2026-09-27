@@ -1,5 +1,4 @@
-# Title
-Analysis of Food Delivery Database
+# Analysis of Food Delivery Database
 
 ## Introduction
 This project is a data analysis of food delivery orders across different restaurants, dates, amounts spent, and delivery details. The dataset includes ~21,000 records of Kaggle orders with their details. A food delivery dataset was chosen, since I work in the hospitality industry (started as a McDonald's employee and transferred to a Banquet Server in a private premier club, Granite Club), therefore a food-themed dataset suited my situation. I found it very exciting analysing a dataset that records timings of delivered orders, discount types and customer satisfaction.
