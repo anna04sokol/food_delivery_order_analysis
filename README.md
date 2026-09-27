@@ -33,5 +33,39 @@ Necessary tools for this project: Python + SQLite + Power BI
 ![Saturday and Aura slicer](images/DeliveryOverview2.png)
 
 ## How to run
-```bash
+
+1. Install packages:
+
+```
 pip install -r requirements.txt
+```
+
+2. (Optional) Clean the data:
+
+```
+jupyter notebook notebooks/data_cleaning.ipynb
+```
+
+The cleaned CSV is already in `data/cleaned/`.
+
+3. Create the SQLite database and load the cleaned CSV. In a Python shell or a new file, run:
+
+```
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect("food_delivery.db")
+conn.executescript(open("sql/schema.sql").read())
+df = pd.read_csv("data/cleaned/order_history_kaggle_cleaned_data.csv")
+df.to_sql("orders", conn, if_exists="append", index=False)
+conn.executescript(open("sql/view.sql").read())
+conn.close()
+```
+
+4. Run the analysis queries:
+
+```
+sqlite3 food_delivery.db < sql/business_analysis.sql
+```
+
+5. Open the dashboard in Power BI Desktop: `powerbi/DeliveryOverview.pbix`
